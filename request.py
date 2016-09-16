@@ -7,20 +7,20 @@ import linecache
 import ConfigParser
 
 conf = ConfigParser.ConfigParser()
-conf.read("config.ini")
-f = open('ip.xml','w')
+conf.read(os.path.join(os.path.dirname(__file__)+"/config.ini")
+f = open(os.path.join(os.path.dirname(__file__)+'/ip.xml','w')
 r = requests.get('http://www.getproxy.jp/proxyapi?ApiKey='+conf.get('api','apikey')+'&area=CN&sort=requesttime&orderby=asc&page='+conf.get('api','page'))
 r=str(r.text)
 f.writelines(r)
 f.close()
-dom = xml.dom.minidom.parse('ip.xml')
+dom = xml.dom.minidom.parse(os.path.join(os.path.dirname(__file__)+'/ip.xml')
 ip=dom.getElementsByTagName('ip')
 pingt=dom.getElementsByTagName('requesttime')
 test=pingt[len(pingt)-1]
 test.firstChild.data=int(test.firstChild.data)
 if test.firstChild.data<2:
 	exit()
-bl=open(conf.get('path','blacklist')+'blacklist.txt','r')
+bl=open(os.path.join(os.path.dirname(__file__)+'/blacklist.txt','r')
 blist=bl.read()
 fit = 0
 i=0
@@ -38,9 +38,9 @@ for index, element in enumerate(ip):
 			break
 if fit == 1:
 	print 'result ' + ip[i].firstChild.data
-	currentip_file=open('current.txt','w+')
+	currentip_file=open(os.path.join(os.path.dirname(__file__)+'/current.txt','w+')
 	currentip_file.write(ip[i].firstChild.data)
-	pac=open(conf.get('path','blacklist')+'netease.pac','r+')
+	pac=open(conf.get('path','web')+'netease.pac','r+')
 	flist=pac.readlines()
 	flist[1]='   if (host == \'music.163.com\') return \'PROXY '+ip[i].firstChild.data+'\';\n'
 	flist[2]='   if (shExpMatch(url,\"*.xiami.com/*\")) return \'PROXY ' +ip[i].firstChild.data+'\';\n'
@@ -49,14 +49,14 @@ if fit == 1:
 	flist[5]='   if (shExpMatch(url,\"*.tudou.com/*\")) return \'PROXY ' +ip[i].firstChild.data+'\';\n'
 	localtime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 	flist[8]='//'+localtime+'\n'
-	pac=open(conf.get('path','blacklist')+'netease.pac','w+')
+	pac=open(conf.get('path','web')+'netease.pac','w+')
 	pac.writelines(flist)
 	pac.close()
-	webpage=open(conf.get('path','blacklist')+'index.htm','r+')
+	webpage=open(conf.get('path','web')+'index.htm','r+')
 	pagecon=webpage.readlines()
 	pagecon[6]='<center>Current server: ' + ip[i].firstChild.data +'</center>\n'
 	pagecon[7]='<center>Update time: ' + localtime +'(EST)</center>\n'
-	webpage=open(conf.get('path','blacklist')+'index.htm','w+')
+	webpage=open(conf.get('path','web')+'index.htm','w+')
 	webpage.writelines(pagecon)
 	webpage.close()
 else:

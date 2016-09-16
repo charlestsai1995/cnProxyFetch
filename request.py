@@ -4,7 +4,10 @@ import xml.dom.minidom
 import sys
 import time
 import linecache
+import ConfigParser
 
+conf = ConfigParser.ConfigParser()
+conf.read("config.ini")
 f = open('ip.xml','w')
 r = requests.get('http://www.getproxy.jp/proxyapi?ApiKey=805b81a32fa3088eaf73dad1f3ec61f6912a6d05&area=CN&sort=requesttime&orderby=asc&page=5')
 r=str(r.text)

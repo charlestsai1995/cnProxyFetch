@@ -9,7 +9,7 @@ import ConfigParser
 conf = ConfigParser.ConfigParser()
 conf.read("config.ini")
 f = open('ip.xml','w')
-r = requests.get('http://www.getproxy.jp/proxyapi?ApiKey=805b81a32fa3088eaf73dad1f3ec61f6912a6d05&area=CN&sort=requesttime&orderby=asc&page=5')
+r = requests.get('http://www.getproxy.jp/proxyapi?ApiKey='+conf.get('api','apikey')+'&area=CN&sort=requesttime&orderby=asc&page='+conf.get('api','page'))
 r=str(r.text)
 f.writelines(r)
 f.close()
@@ -20,7 +20,7 @@ test=pingt[len(pingt)-1]
 test.firstChild.data=int(test.firstChild.data)
 if test.firstChild.data<2:
 	exit()
-bl=open('/home/test/blacklist.txt','r')
+bl=open(conf.get('path','blacklist')+'blacklist.txt','r')
 blist=bl.read()
 fit = 0
 i=0
@@ -40,7 +40,7 @@ if fit == 1:
 	print 'result ' + ip[i].firstChild.data
 	currentip_file=open('current.txt','w+')
 	currentip_file.write(ip[i].firstChild.data)
-	pac=open('/var/www/html/netease.pac','r+')
+	pac=open(conf.get('path','blacklist')+'netease.pac','r+')
 	flist=pac.readlines()
 	flist[1]='   if (host == \'music.163.com\') return \'PROXY '+ip[i].firstChild.data+'\';\n'
 	flist[2]='   if (shExpMatch(url,\"*.xiami.com/*\")) return \'PROXY ' +ip[i].firstChild.data+'\';\n'
@@ -49,14 +49,14 @@ if fit == 1:
 	flist[5]='   if (shExpMatch(url,\"*.tudou.com/*\")) return \'PROXY ' +ip[i].firstChild.data+'\';\n'
 	localtime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 	flist[8]='//'+localtime+'\n'
-	pac=open('/var/www/html/netease.pac','w+')
+	pac=open(conf.get('path','blacklist')+'netease.pac','w+')
 	pac.writelines(flist)
 	pac.close()
-	webpage=open('/var/www/html/index.htm','r+')
+	webpage=open(conf.get('path','blacklist')+'index.htm','r+')
 	pagecon=webpage.readlines()
 	pagecon[6]='<center>Current server: ' + ip[i].firstChild.data +'</center>\n'
 	pagecon[7]='<center>Update time: ' + localtime +'(EST)</center>\n'
-	webpage=open('/var/www/html/index.htm','w+')
+	webpage=open(conf.get('path','blacklist')+'index.htm','w+')
 	webpage.writelines(pagecon)
 	webpage.close()
 else:

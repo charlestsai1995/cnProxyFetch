@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <items>
 <item>
-<ip>58.252.58.217:8000</ip>
-<requesttime>-1</requesttime>
+<ip>112.124.4.151:80</ip>
+<requesttime>210</requesttime>
 <area>CN</area>
 <areaname></areaname>
 <http>0</http>
@@ -12,8 +12,8 @@
 <twoch>0</twoch>
 </item>
 <item>
-<ip>124.206.167.250:3128</ip>
-<requesttime>-1</requesttime>
+<ip>120.52.72.59:80</ip>
+<requesttime>242</requesttime>
 <area>CN</area>
 <areaname></areaname>
 <http>0</http>
@@ -23,8 +23,8 @@
 <twoch>0</twoch>
 </item>
 <item>
-<ip>59.58.162.141:888</ip>
-<requesttime>-1</requesttime>
+<ip>120.52.72.58:80</ip>
+<requesttime>242</requesttime>
 <area>CN</area>
 <areaname></areaname>
 <http>0</http>
@@ -34,8 +34,8 @@
 <twoch>0</twoch>
 </item>
 <item>
-<ip>120.52.72.44:80</ip>
-<requesttime>-1</requesttime>
+<ip>120.52.72.19:80</ip>
+<requesttime>250</requesttime>
 <area>CN</area>
 <areaname></areaname>
 <http>0</http>
@@ -45,8 +45,8 @@
 <twoch>0</twoch>
 </item>
 <item>
-<ip>117.177.250.148:85</ip>
-<requesttime>-1</requesttime>
+<ip>120.52.72.52:80</ip>
+<requesttime>250</requesttime>
 <area>CN</area>
 <areaname></areaname>
 <http>0</http>
@@ -56,8 +56,8 @@
 <twoch>0</twoch>
 </item>
 <item>
-<ip>182.92.188.23:3128</ip>
-<requesttime>-1</requesttime>
+<ip>183.61.236.53:3128</ip>
+<requesttime>257</requesttime>
 <area>CN</area>
 <areaname></areaname>
 <http>0</http>
@@ -67,8 +67,8 @@
 <twoch>0</twoch>
 </item>
 <item>
-<ip>60.220.248.117:3128</ip>
-<requesttime>-1</requesttime>
+<ip>120.52.72.56:80</ip>
+<requesttime>257</requesttime>
 <area>CN</area>
 <areaname></areaname>
 <http>0</http>
@@ -78,8 +78,8 @@
 <twoch>0</twoch>
 </item>
 <item>
-<ip>218.247.194.249:3128</ip>
-<requesttime>-1</requesttime>
+<ip>119.188.94.145:80</ip>
+<requesttime>281</requesttime>
 <area>CN</area>
 <areaname></areaname>
 <http>0</http>
@@ -89,8 +89,8 @@
 <twoch>0</twoch>
 </item>
 <item>
-<ip>183.131.151.208:80</ip>
-<requesttime>-1</requesttime>
+<ip>183.61.236.55:3128</ip>
+<requesttime>296</requesttime>
 <area>CN</area>
 <areaname></areaname>
 <http>0</http>
@@ -100,8 +100,8 @@
 <twoch>0</twoch>
 </item>
 <item>
-<ip>218.75.58.140:80</ip>
-<requesttime>160</requesttime>
+<ip>120.52.72.48:9011</ip>
+<requesttime>343</requesttime>
 <area>CN</area>
 <areaname></areaname>
 <http>0</http>

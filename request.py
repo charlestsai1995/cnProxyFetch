@@ -15,7 +15,7 @@ r = requests.get('http://www.getproxy.jp/proxyapi?ApiKey='+conf.get('api','apike
 r=str(r.text)
 f.writelines(r)
 f.close()
-dom = xml.dom.minidom.parse(path+'ip.xml')
+dom = xml.dom.minidom.parse(path+'/ip.xml')
 ip=dom.getElementsByTagName('ip')
 pingt=dom.getElementsByTagName('requesttime')
 test=pingt[len(pingt)-1]

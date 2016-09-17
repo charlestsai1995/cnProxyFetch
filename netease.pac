@@ -1,5 +1,9 @@
 function FindProxyForURL(url, host) {
-   if (host == 'music.163.com') return 'PROXY 183.61.236.54:3128';
+   if (host == 'music.163.com') return 'PROXY 120.52.72.58:80';
+   if (shExpMatch(url,"*.xiami.com/*")) return 'PROXY 120.52.72.58:80';
+   if (shExpMatch(url,"*.xiami.net/*")) return 'PROXY 120.52.72.58:80';
+   if (shExpMatch(url,"*.cnzz.com/*")) return 'PROXY 120.52.72.58:80';
+   if (shExpMatch(url,"*.tudou.com/*")) return 'PROXY 120.52.72.58:80';
    return 'DIRECT';
 }
-//2016-01-21 15:31:52
+//2016-09-17 02:29:02

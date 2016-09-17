@@ -9,20 +9,20 @@ import os
 
 path = os.path.abspath(os.path.dirname(sys.argv[0]))
 conf = ConfigParser.ConfigParser()
-conf.read(path+"/config.ini")
-f = open(path+'/ip.xml','w')
+conf.read(path+"config.ini")
+f = open(path+'ip.xml','w')
 r = requests.get('http://www.getproxy.jp/proxyapi?ApiKey='+conf.get('api','apikey')+'&area=CN&sort=requesttime&orderby=asc&page='+conf.get('api','page'))
 r=str(r.text)
 f.writelines(r)
 f.close()
-dom = xml.dom.minidom.parse(path+'/ip.xml')
+dom = xml.dom.minidom.parse(path+'ip.xml')
 ip=dom.getElementsByTagName('ip')
 pingt=dom.getElementsByTagName('requesttime')
 test=pingt[len(pingt)-1]
 test.firstChild.data=int(test.firstChild.data)
 if test.firstChild.data<2:
 	exit()
-bl=open(path+'/blacklist.txt','r')
+bl=open(path+'blacklist.txt','r')
 blist=bl.read()
 fit = 0
 i=0
@@ -40,7 +40,7 @@ for index, element in enumerate(ip):
 			break
 if fit == 1:
 	print 'result ' + ip[i].firstChild.data
-	currentip_file=open(path+'/current.txt','w+')
+	currentip_file=open(path+'current.txt','w+')
 	currentip_file.write(ip[i].firstChild.data)
 	pac=open(conf.get('path','web')+'netease.pac','r+')
 	flist=pac.readlines()
